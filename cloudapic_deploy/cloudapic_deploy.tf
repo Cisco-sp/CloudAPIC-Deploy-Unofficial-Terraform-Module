@@ -1,17 +1,17 @@
 
 resource "null_resource" "public_private_key" {
     provisioner "local-exec" {
-        command = "ssh-keygen -f ${path.root}/credentials/${var.cloudapic_ssh_key}_terraform -m pem -N ''"
+        command = "ssh-keygen -f ${path.module}/cloudapic_credentials/${var.cloudapic_ssh_key}_ssh_key -m pem -N ''"
         }
     
     provisioner "local-exec" {
         when = destroy
-        command = "rm ${path.root}/credentials/*_terraform"
+        command = "rm ${path.module}/cloudapic_credentials/*_ssh_key"
     }
     
     provisioner "local-exec" {
         when = destroy
-        command = "rm ${path.root}/credentials/*_terraform.pub"
+        command = "rm ${path.module}/cloudapic_credentials/*_ssh_key.pub"
     }
 
 }
@@ -19,7 +19,7 @@ resource "null_resource" "public_private_key" {
 data "local_file" "read_key" {
    
     depends_on = [null_resource.public_private_key]
-    filename = "${path.root}/credentials/${var.cloudapic_ssh_key}_terraform.pub"
+    filename = "${path.module}/cloudapic_credentials/${var.cloudapic_ssh_key}_ssh_key.pub"
 }
 
 data "local_file" "cloudapic_password" {

@@ -5,4 +5,3 @@ provider aws {
     profile = var.aws_credentials_profile
 }
 
-/*You need to use the ACI Provider, the deploy_aci_network will inherit the provider from here. */

@@ -8,7 +8,7 @@
 #Credentials
 *.auto.tfvars
 *.tfvars
-**/credentials/*
+*_ssh_key
 
 # Crash log files
 crash.log
