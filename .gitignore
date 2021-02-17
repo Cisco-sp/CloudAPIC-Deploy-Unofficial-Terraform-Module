@@ -5,6 +5,11 @@
 *.tfstate
 *.tfstate.*
 
+#Credentials
+*.auto.tfvars
+*.tfvars
+**/credentials/*
+
 # Crash log files
 crash.log
 
