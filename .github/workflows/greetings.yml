@@ -1,0 +1,13 @@
+name: Greetings
+
+on: [pull_request, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: 'Thanks for checking out my Module, i will see if i can resolve your issue, if you want to ask me directly on Webex my email is heprado@cisco.com'
+        pr-message: 'I'm really thankful for you'
